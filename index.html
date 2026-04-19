@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shresta Gourishetty — AI Researcher & Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f2ec;
+    --accent: #1a1a2e;
+    --punch: #e63946;
+    --muted: #6b6760;
+    --border: rgba(10,10,10,0.12);
+    --card-bg: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 3rem 6rem 3rem;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 28px; height: 1.5px; background: var(--punch);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 800; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 1.8rem;
+  }
+  h1 span { color: var(--punch); }
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.75;
+    color: var(--muted); max-width: 420px;
+    margin-bottom: 2.8rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    background: var(--ink); color: var(--paper);
+    padding: 0.85rem 2rem; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--punch); transform: translateY(-2px); }
+  .btn-outline {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    background: transparent; color: var(--ink);
+    padding: 0.85rem 2rem;
+    border: 1.5px solid var(--ink); cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--punch); color: var(--punch); transform: translateY(-2px); }
+
+  .hero-right {
+    background: var(--accent);
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+  }
+  .hero-stats {
+    position: relative; z-index: 2;
+    padding: 3rem; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.04);
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem; font-weight: 800;
+    color: #fff; line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-num span { color: var(--punch); }
+  .stat-label {
+    font-size: 0.75rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-tag::before {
+    content: ''; display: block; width: 20px; height: 1.5px; background: var(--punch);
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); }
+  #skills .section-tag { color: var(--punch); }
+  #skills h2 { color: #fff; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px; background: rgba(255,255,255,0.06);
+  }
+  .skill-category {
+    background: #0a0a0a;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.2s;
+  }
+  .skill-category:hover { background: #111; }
+  .skill-cat-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.2rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.78rem; font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.3rem 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tag:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--paper); }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 2rem; padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--muted); padding-top: 0.2rem;
+    text-transform: uppercase;
+  }
+  .exp-content {}
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.15rem;
+  }
+  .exp-company {
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--punch); margin-bottom: 1rem;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-bullets li {
+    font-size: 0.9rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--punch); font-size: 0.8rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: #f0ede6; }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5px; background: var(--border);
+  }
+  .project-card {
+    background: var(--card-bg);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--punch);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { background: #fefefe; }
+  .project-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.2rem;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.8rem; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.875rem; line-height: 1.7;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tech-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.06em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    background: var(--paper);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--accent);
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+  #contact .section-tag { color: var(--punch); justify-content: center; }
+  #contact .section-tag::before { display: none; }
+  #contact h2 { color: #fff; margin-bottom: 1rem; }
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.45);
+    margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    display: inline-block; padding: 0.85rem 2rem;
+    text-decoration: none; transition: transform 0.15s;
+  }
+  .contact-link:hover { transform: translateY(-2px); }
+  .contact-link-primary {
+    background: var(--punch); color: #fff;
+  }
+  .contact-link-secondary {
+    border: 1.5px solid rgba(255,255,255,0.25); color: #fff;
+  }
+  .contact-link-secondary:hover { border-color: rgba(255,255,255,0.6); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060606; color: rgba(255,255,255,0.25);
+    text-align: center; padding: 1.5rem 3rem;
+    font-size: 0.75rem; letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 1.5rem 3rem; }
+    .hero-right { min-height: 300px; }
+    section { padding: 4rem 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">SG.</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag">AI Researcher & Analyst</div>
+    <h1>Shresta<br/><span>Gourishetty</span></h1>
+    <p class="hero-desc">
+      Management Engineering student at the University of Waterloo, building AI systems, data pipelines, and research frameworks at the intersection of technology and decision-making.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:gourishettyshresta@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-label">Co-op terms</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">99<span>%</span></div>
+        <div class="stat-label">LLM eval pass rate</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">60<span>%</span></div>
+        <div class="stat-label">Data entry time saved</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4<span>+</span></div>
+        <div class="stat-label">ML projects shipped</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">What I work with</div>
+  <h2>Technical Skills</h2>
+  <div class="skills-grid fade-up">
+    <div class="skill-category">
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">R</span>
+        <span class="tag">VBA</span>
+        <span class="tag">Java</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">LaTeX</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">AI / ML</div>
+      <div class="skill-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">LLM Research</span>
+        <span class="tag">Statistical Modeling</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Tools & Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">React.js</span>
+        <span class="tag">Cypress</span>
+        <span class="tag">VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Where I've worked</div>
+  <h2>Experience</h2>
+  <div class="exp-list fade-up">
+
+    <div class="exp-item">
+      <div class="exp-period">Jan 2026 –<br/>Apr 2026</div>
+      <div class="exp-content">
+        <div class="exp-role">AI Researcher</div>
+        <div class="exp-company">ISED · Ottawa, ON</div>
+        <ul class="exp-bullets">
+          <li>Designed and executed 4 end-to-end AI research projects, synthesizing findings into structured reports for 7 federal decision-makers.</li>
+          <li>Collected, cleaned, and refined large datasets using SQL and Python (Pandas, NumPy), reducing data preparation time by ~30% through reusable pipeline scripts.</li>
+          <li>Produced 10 visualizations and written summaries communicating findings to both technical and non-technical audiences across 2 research workstreams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">May 2025 –<br/>Aug 2025</div>
+      <div class="exp-content">
+        <div class="exp-role">Operations Analyst</div>
+        <div class="exp-company">Tenstorrent · Toronto, ON</div>
+        <ul class="exp-bullets">
+          <li>Curated and structured 500+ component entries for AI chip hardware, designing collection pipelines that cut manual data entry time by ~60%.</li>
+          <li>Conducted exploratory data analysis and statistical modeling on hardware datasets using R, flagging 20 data irregularities that influenced procurement decisions.</li>
+          <li>Managed end-to-end research workflows in a fast-paced AI hardware environment, coordinating cross-functional deliverables with rigorous documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jan 2023 –<br/>Apr 2023</div>
+      <div class="exp-content">
+        <div class="exp-role">Business Analyst</div>
+        <div class="exp-company">Health Canada · Guelph, ON</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented an ETL pipeline integrating data from 3+ sources into a Power BI dashboard, reducing manual reporting time by ~70%.</li>
+          <li>Produced 3 research documents translating complex quantitative findings into actionable deliverables, improving stakeholder alignment.</li>
+          <li>Led 2 multi-stakeholder research initiatives from scoping to delivery, coordinating findings across technical and non-technical teams.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">What I've built</div>
+  <h2>Projects</h2>
+  <div class="projects-grid fade-up">
+
+    <div class="project-card">
+      <div class="project-num">01 / ML</div>
+      <div class="project-title">Stock Market Prediction</div>
+      <p class="project-desc">
+        Investigated whether U.S. presidential election outcomes predict stock market movement. Benchmarked 5 algorithms — random forest emerged as the optimal model at 95% accuracy on a held-out test set.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Scikit-learn</span>
+        <span class="tech-pill">Random Forest</span>
+        <span class="tech-pill">Cross-validation</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02 / NLP</div>
+      <div class="project-title">LLM Evaluation Framework</div>
+      <p class="project-desc">
+        Built an end-to-end LLM evaluation pipeline assessing Q&A chatbot performance across 20 questions, integrating the Groq API (Llama 3.3 70B) and achieving a 99% pass rate across both LLM-as-judge and human review.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Groq API</span>
+        <span class="tech-pill">Llama 3.3</span>
+        <span class="tech-pill">Prompt Eng.</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03 / RecSys</div>
+      <div class="project-title">Movie Recommendation System</div>
+      <p class="project-desc">
+        Applied collaborative filtering to model user preference patterns across genres and demographics. Built a structured SQL schema to query user-film interaction data and identify bias patterns.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">SQL</span>
+        <span class="tech-pill">Collaborative Filtering</span>
+        <span class="tech-pill">EDA</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04 / Full-stack</div>
+      <div class="project-title">Let it Cook — Recipe App</div>
+      <p class="project-desc">
+        Designed and developed a full-stack recipe application. Prototyped the UI/UX in Figma, implemented with React.js frontend and SQL backend for recipe storage and retrieval.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">React.js</span>
+        <span class="tech-pill">SQL</span>
+        <span class="tech-pill">Figma</span>
+        <span class="tech-pill">UI/UX</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Let's connect</div>
+  <h2>Open to<br/>Opportunities</h2>
+  <p class="contact-sub">
+    Looking for co-op and internship roles in AI research, data analysis, and ML engineering. Based in Kitchener, ON — open to remote and hybrid.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:gourishettyshresta@gmail.com" class="contact-link contact-link-primary">Email Me</a>
+    <a href="https://linkedin.com" target="_blank" class="contact-link contact-link-secondary">LinkedIn</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Shresta Gourishetty &nbsp;·&nbsp; Kitchener, ON &nbsp;·&nbsp; Built with HTML/CSS
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
