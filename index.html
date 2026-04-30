@@ -330,6 +330,127 @@
     section { padding: 4rem 1.5rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
   }
+
+ <style>
+  button.project-card {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    border: 1px solid var(--line, currentColor);
+    cursor: pointer;
+  }
+
+  .project-card--modal {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  .project-card--modal:hover,
+  .project-card--modal:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, 0.12));
+    outline: none;
+  }
+
+  .project-card__hint {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--accent, inherit);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .project-modal {
+    width: min(860px, calc(100% - 36px));
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    border-radius: var(--radius, 24px);
+    padding: 0;
+    background: var(--surface, Canvas);
+    color: var(--ink, CanvasText);
+    box-shadow: var(--shadow, 0 24px 70px rgba(0, 0, 0, 0.16));
+  }
+
+  .project-modal::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  .project-modal__body {
+    padding: 32px;
+    max-height: min(82vh, 820px);
+    overflow: auto;
+  }
+
+  .project-modal__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .project-modal__top h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .project-modal__close {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    background: var(--surface, transparent);
+    color: var(--ink, inherit);
+    font: inherit;
+    font-size: 1.4rem;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .project-modal__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 18px;
+  }
+
+  .project-modal__panel {
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    border-radius: calc(var(--radius, 24px) - 4px);
+    padding: 20px;
+    background: var(--surface, transparent);
+  }
+
+  .project-modal__panel h4 {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+  }
+
+  .project-modal__panel p,
+  .project-modal__panel li {
+    color: var(--muted, inherit);
+  }
+
+  .project-modal__panel ul {
+    margin: 0;
+    padding-left: 19px;
+  }
+
+  .project-modal__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 820px) {
+    .project-modal__grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .project-modal__body { padding: 22px; }
+  }
+</style>
 </style>
 </head>
 <body>
@@ -524,22 +645,67 @@
       </div>
     </div>
 
-    <div class="project-card">
-      <div class="project-num">04 / Full-stack</div>
-      <div class="project-title">Let it Cook — Recipe App</div>
-      <p class="project-desc">
-        Designed and developed a full-stack recipe application. Prototyped the UI/UX in Figma, implemented with React.js frontend and SQL backend for recipe storage and retrieval.
-      </p>
-      <div class="project-techs">
-        <span class="tech-pill">React.js</span>
-        <span class="tech-pill">SQL</span>
-        <span class="tech-pill">Figma</span>
-        <span class="tech-pill">UI/UX</span>
-      </div>
-    </div>
+    <button class="project-card project-card--modal" type="button" data-open-modal="let-me-cook-modal" aria-haspopup="dialog">
+      <div class="project-meta">04 / Full-stack</div>
+      <h3>Let it Cook — Recipe App</h3>
+      <p>Designed and developed a full-stack recipe application. Prototyped the UI/UX in Figma, implemented with React.js frontend and SQL backend for recipe storage and retrieval.</p>
+      <div class="tags"><span class="tag">React.js</span><span class="tag">SQL</span><span class="tag">Figma</span><span class="tag">UI/UX</span></div>
+      <span class="project-card__hint">Click for project details</span>
+    </button>
 
   </div>
 </section>
+
+ <dialog id="let-me-cook-modal" class="project-modal" aria-labelledby="let-me-cook-title">
+  <div class="project-modal__body">
+    <div class="project-modal__top">
+      <div>
+        <div class="eyebrow">Group full-stack project</div>
+        <h3 id="let-me-cook-title">Let Me Cook — Recipe App</h3>
+      </div>
+      <button class="project-modal__close" type="button" data-close-modal aria-label="Close project details">×</button>
+    </div>
+
+    <div class="project-modal__grid">
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-overview">
+        <h4 id="let-me-cook-overview">Project overview</h4>
+        <p>Let Me Cook is a full-stack recipe and meal-planning web application built for university students who are managing meals with limited time, budget, cooking experience, and dietary constraints. The application recommends recipes based on available ingredients, dietary restrictions, budget goals, health goals, cuisine preferences, meal type, cooking time, ingredient availability, and rating.</p>
+        <p>The final system supported secure user accounts, profile-based preferences, recipe search and filtering, ingredient-based recipe matching, recipe scaling, recipe reviews, favourites, tried recipes, personal notes, budget-aware recommendations, nutritional information, cost estimates, ingredient substitutes, help icons, and a responsive interface.</p>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-skills">
+        <h4 id="let-me-cook-skills">Skills demonstrated</h4>
+        <div class="tags">
+          <span class="tag">React.js</span><span class="tag">SQL</span><span class="tag">Firebase Auth</span><span class="tag">Database Design</span><span class="tag">Agile Sprints</span><span class="tag">GitHub</span><span class="tag">Cypress</span><span class="tag">UI/UX</span>
+        </div>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-teamwork">
+        <h4 id="let-me-cook-teamwork">Teamwork and collaboration</h4>
+        <ul>
+          <li>Completed as a Group 11 team project with Ana Hogiu, Muhammad Hussain, Christopher Yu, and Shresta Gourishetty.</li>
+          <li>Worked through three agile sprints using user stories, acceptance criteria, retrospectives, and sprint-based delivery.</li>
+          <li>Collaborated through GitHub workflows, shared planning, feature ownership, and regular check-ins to reduce blockers and resolve merge conflicts.</li>
+          <li>Contributed to secure login, user data handling, recipe scaling, budget-aware recipe features, estimated recipe cost, UI improvements, and final feature integration.</li>
+        </ul>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-outcomes">
+        <h4 id="let-me-cook-outcomes">Key outcomes</h4>
+        <ul>
+          <li>Designed a 19-table MySQL database to support users, recipes, ingredients, preferences, restrictions, health goals, favourites, reviews, notes, prices, and ingredient substitutes.</li>
+          <li>Built features that help students save time, reduce food waste, manage dietary restrictions, and stay aware of budget and nutrition goals.</li>
+          <li>Pivoted from an infeasible chatbot idea to reviews and comments while preserving meaningful user interaction features.</li>
+          <li>Improved usability after feedback by refining recipe page organization, adding consistent buttons, and including help icons.</li>
+        </ul>
+        <div class="project-modal__links">
+          <a class="btn primary" href="https://github.com/MSci-245-react/team-project-team-11-1" target="_blank" rel="noopener noreferrer">View GitHub Project</a>
+          <a class="btn secondary" href="assets/let-me-cook-final-report.pdf" target="_blank" rel="noopener noreferrer">Open Final Report PDF</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</dialog>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -564,6 +730,34 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+ <script>
+  document.querySelectorAll('[data-open-modal]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const modal = document.getElementById(trigger.dataset.openModal);
+      if (modal && typeof modal.showModal === 'function') modal.showModal();
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', () => {
+      button.closest('dialog')?.close();
+    });
+  });
+
+  document.querySelectorAll('dialog').forEach((dialog) => {
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const clickedInside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+
+      if (!clickedInside) dialog.close();
+    });
+  });
 </script>
 
 </body>
