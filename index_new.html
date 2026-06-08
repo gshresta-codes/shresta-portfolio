@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shresta Gourishetty — AI Researcher & Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f2ec;
+    --accent: #1a1a2e;
+    --punch: #e63946;
+    --muted: #6b6760;
+    --border: rgba(10,10,10,0.12);
+    --card-bg: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 3rem 6rem 3rem;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 28px; height: 1.5px; background: var(--punch);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 800; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 1.8rem;
+  }
+  h1 span { color: var(--punch); }
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.75;
+    color: var(--muted); max-width: 420px;
+    margin-bottom: 2.8rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    background: var(--ink); color: var(--paper);
+    padding: 0.85rem 2rem; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--punch); transform: translateY(-2px); }
+  .btn-outline {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    background: transparent; color: var(--ink);
+    padding: 0.85rem 2rem;
+    border: 1.5px solid var(--ink); cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--punch); color: var(--punch); transform: translateY(-2px); }
+
+  .hero-right {
+    background: var(--accent);
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+  }
+  .hero-stats {
+    position: relative; z-index: 2;
+    padding: 3rem; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.04);
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem; font-weight: 800;
+    color: #fff; line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-num span { color: var(--punch); }
+  .stat-label {
+    font-size: 0.75rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 3rem; }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-tag::before {
+    content: ''; display: block; width: 20px; height: 1.5px; background: var(--punch);
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.03em; color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); }
+  #skills .section-tag { color: var(--punch); }
+  #skills h2 { color: #fff; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px; background: rgba(255,255,255,0.06);
+  }
+  .skill-category {
+    background: #0a0a0a;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.2s;
+  }
+  .skill-category:hover { background: #111; }
+  .skill-cat-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.2rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.78rem; font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.3rem 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tag:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--paper); }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 2rem; padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--muted); padding-top: 0.2rem;
+    text-transform: uppercase;
+  }
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.15rem;
+  }
+  .exp-company {
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--punch); margin-bottom: 1rem;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .exp-bullets li {
+    font-size: 0.9rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--punch); font-size: 0.8rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: #f0ede6; }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5px; background: var(--border);
+  }
+  .project-card {
+    background: var(--card-bg);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card.clickable { cursor: pointer; }
+  .project-card.clickable:hover { transform: translateY(-2px); }
+  .project-hint {
+    font-size: 0.72rem; color: var(--punch); margin-top: 1.2rem;
+    font-family: 'DM Mono', monospace; letter-spacing: 0.06em;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(10,10,10,0.75);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: #fff; max-width: 800px; width: 100%;
+    max-height: 88vh; overflow-y: auto;
+    position: relative;
+    transform: translateY(28px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1.2);
+  }
+  .modal-overlay.open .modal { transform: none; }
+  .modal-header {
+    background: var(--accent); padding: 2.5rem 2.5rem 2rem; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: rgba(255,255,255,0.1); border: none; cursor: pointer;
+    color: #fff; font-size: 1rem; width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: var(--punch); }
+  .modal-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 0.7rem;
+  }
+  .modal-title {
+    font-family: 'Syne', sans-serif; font-size: 1.8rem;
+    font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 0.4rem;
+  }
+  .modal-subtitle { font-size: 0.88rem; color: rgba(255,255,255,0.45); }
+  .modal-body { padding: 2.5rem; }
+  .modal-section { margin-bottom: 2rem; }
+  .modal-section-title {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  .modal-section p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
+  .modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .modal-bullets li {
+    font-size: 0.88rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1.1rem; position: relative;
+  }
+  .modal-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--punch); }
+  .modal-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .modal-chip {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem; border: 1px solid var(--border);
+    background: var(--paper); color: var(--muted);
+  }
+  .modal-chip.hl { background: var(--accent); color: rgba(255,255,255,0.8); border-color: transparent; }
+  .modal-team { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .team-pill {
+    font-size: 0.8rem; padding: 0.3rem 0.9rem;
+    border: 1px solid var(--border); background: #f9f7f4; color: var(--ink);
+  }
+  .team-pill.me { background: var(--punch); color: #fff; border-color: var(--punch); font-weight: 600; }
+  .collab-badge {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    background: #eef7ee; border: 1px solid #b8ddb8;
+    color: #2d6a2d; font-size: 0.75rem; font-weight: 500;
+    padding: 0.3rem 0.8rem; margin-bottom: 1.8rem;
+  }
+  .collab-badge::before { content: '●'; font-size: 0.5rem; color: #4caf50; }
+  .modal-links {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .modal-link {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 0.04em; padding: 0.75rem 1.6rem;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: transform 0.15s;
+  }
+  .modal-link:hover { transform: translateY(-2px); }
+  .modal-link-primary { background: var(--ink); color: #fff; }
+  .modal-link-primary:hover { background: var(--punch); }
+  .modal-link-secondary { border: 1.5px solid var(--ink); color: var(--ink); }
+  .modal-link-secondary:hover { border-color: var(--punch); color: var(--punch); }
+  .modal-link-ghost { border: 1.5px solid var(--border); color: var(--muted); }
+  .modal-link-ghost:hover { border-color: var(--punch); color: var(--punch); }
+  .sprint-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; background: var(--border); margin-top: 0.5rem;
+  }
+  .sprint-box {
+    background: #fafafa; padding: 1rem 1.2rem;
+    border: 1px solid var(--border);
+  }
+  .sprint-label {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 0.4rem;
+  }
+  .sprint-box p { font-size: 0.82rem; line-height: 1.6; color: var(--muted); }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--punch);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { background: #fefefe; }
+  .project-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--punch); margin-bottom: 1.2rem;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.8rem; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.875rem; line-height: 1.7;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tech-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.06em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    background: var(--paper);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--accent);
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+  #contact .section-tag { color: var(--punch); justify-content: center; }
+  #contact .section-tag::before { display: none; }
+  #contact h2 { color: #fff; margin-bottom: 1rem; }
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.45);
+    margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    display: inline-block; padding: 0.85rem 2rem;
+    text-decoration: none; transition: transform 0.15s;
+  }
+  .contact-link:hover { transform: translateY(-2px); }
+  .contact-link-primary {
+    background: var(--punch); color: #fff;
+  }
+  .contact-link-secondary {
+    border: 1.5px solid rgba(255,255,255,0.25); color: #fff;
+  }
+  .contact-link-secondary:hover { border-color: rgba(255,255,255,0.6); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060606; color: rgba(255,255,255,0.25);
+    text-align: center; padding: 1.5rem 3rem;
+    font-size: 0.75rem; letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 1.5rem 3rem; }
+    .hero-right { min-height: 300px; }
+    section { padding: 4rem 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+
+  button.project-card {
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    border: 1px solid var(--line, currentColor);
+    cursor: pointer;
+  }
+
+  .project-card--modal {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  .project-card--modal:hover,
+  .project-card--modal:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, 0.12));
+    outline: none;
+  }
+
+  .project-card__hint {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--accent, inherit);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .project-modal {
+    width: min(860px, calc(100% - 36px));
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    border-radius: var(--radius, 24px);
+    padding: 0;
+    background: var(--surface, Canvas);
+    color: var(--ink, CanvasText);
+    box-shadow: var(--shadow, 0 24px 70px rgba(0, 0, 0, 0.16));
+  }
+
+  .project-modal::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  .project-modal__body {
+    padding: 32px;
+    max-height: min(82vh, 820px);
+    overflow: auto;
+  }
+
+  .project-modal__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .project-modal__top h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .project-modal__close {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    background: var(--surface, transparent);
+    color: var(--ink, inherit);
+    font: inherit;
+    font-size: 1.4rem;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .project-modal__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 18px;
+  }
+
+  .project-modal__panel {
+    border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+    border-radius: calc(var(--radius, 24px) - 4px);
+    padding: 20px;
+    background: var(--surface, transparent);
+  }
+
+  .project-modal__panel h4 {
+    margin: 0 0 10px;
+    font-size: 1.02rem;
+  }
+
+  .project-modal__panel p,
+  .project-modal__panel li {
+    color: var(--muted, inherit);
+  }
+
+  .project-modal__panel ul {
+    margin: 0;
+    padding-left: 19px;
+  }
+
+  .project-modal__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 820px) {
+    .project-modal__grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .project-modal__body { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">SG.</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <h1>Shresta<br/><span>Gourishetty</span></h1>
+    <p class="hero-desc">
+      Management Engineering student at the University of Waterloo, building AI systems, data pipelines, and research frameworks at the intersection of technology and decision-making.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:gourishettyshresta@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-stats" style="grid-template-columns: 1fr 1fr;">
+      <div class="stat-box">
+        <div class="stat-num">1.27<span>M</span></div>
+        <div class="stat-label">Records processed end-to-end in a single pipeline</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">162<span>K</span></div>
+        <div class="stat-label">Anomalies surfaced from open data using ML + statistical detection</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">70<span>%</span></div>
+        <div class="stat-label">Reporting time cut by automating ETL into a live dashboard</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">94<span>%</span></div>
+        <div class="stat-label">LLM eval pass rate · LLM-as-judge vs. human review agreement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">What I work with</div>
+  <h2>Technical Skills</h2>
+  <div class="skills-grid fade-up">
+    <div class="skill-category">
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">R</span>
+        <span class="tag">VBA</span>
+        <span class="tag">Java</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">LaTeX</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">AI / ML</div>
+      <div class="skill-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Isolation Forest</span>
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">LLM Research</span>
+        <span class="tag">Statistical Modeling</span>
+        <span class="tag">Data Pipelines</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Tools & Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">dbt</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">React.js</span>
+        <span class="tag">Cypress</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Where I've worked</div>
+  <h2>Experience</h2>
+  <div class="exp-list fade-up">
+
+    <div class="exp-item">
+      <div class="exp-period">Jan 2026 –<br/>Apr 2026</div>
+      <div class="exp-content">
+        <div class="exp-role">AI Researcher</div>
+        <div class="exp-company">ISED · Ottawa, ON</div>
+        <ul class="exp-bullets">
+          <li>Designed and executed 4 end-to-end AI research projects, synthesizing findings into structured reports for 7 federal decision-makers.</li>
+          <li>Collected, cleaned, and refined large datasets using SQL and Python (Pandas, NumPy), reducing data preparation time by ~30% through reusable pipeline scripts.</li>
+          <li>Produced 10 visualizations and written summaries communicating findings to both technical and non-technical audiences across 2 research workstreams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">May 2025 –<br/>Aug 2025</div>
+      <div class="exp-content">
+        <div class="exp-role">Operations Analyst</div>
+        <div class="exp-company">Tenstorrent · Toronto, ON</div>
+        <ul class="exp-bullets">
+          <li>Curated and structured 500+ component entries for AI chip hardware, designing collection pipelines that cut manual data entry time by ~60%.</li>
+          <li>Conducted exploratory data analysis and statistical modeling on hardware datasets using R, flagging 20 data irregularities that influenced procurement decisions.</li>
+          <li>Managed end-to-end research workflows in a fast-paced AI hardware environment, coordinating cross-functional deliverables with rigorous documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jan 2023 –<br/>Apr 2023</div>
+      <div class="exp-content">
+        <div class="exp-role">Business Analyst</div>
+        <div class="exp-company">Health Canada · Guelph, ON</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented an ETL pipeline integrating data from 3+ sources into a Power BI dashboard, reducing manual reporting time by ~70%.</li>
+          <li>Produced 3 research documents translating complex quantitative findings into actionable deliverables, improving stakeholder alignment.</li>
+          <li>Led 2 multi-stakeholder research initiatives from scoping to delivery, coordinating findings across technical and non-technical teams.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">What I've built</div>
+  <h2>Projects</h2>
+  <div class="projects-grid fade-up">
+
+    <div class="project-card">
+      <div class="project-num">01 / ML</div>
+      <div class="project-title">Stock Market Prediction</div>
+      <p class="project-desc">
+        Investigated whether U.S. presidential election outcomes predict stock market movement. Benchmarked 5 algorithms — random forest emerged as the optimal model at 95% accuracy on a held-out test set.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Scikit-learn</span>
+        <span class="tech-pill">Random Forest</span>
+        <span class="tech-pill">Cross-validation</span>
+      </div>
+    </div>
+
+    <div class="project-card clickable" onclick="document.getElementById('modal-llmeval').classList.add('open'); document.body.style.overflow='hidden';">
+      <div class="project-num">02 / NLP · LLM Research</div>
+      <div class="project-title">LLM Evaluation Framework</div>
+      <p class="project-desc">
+        Built an end-to-end evaluation pipeline for Q&A chatbots using Groq API (Llama 3.3 70B), comparing LLM-as-judge and human review scoring — achieving a 94% pass rate across 6 topic categories.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Groq API</span>
+        <span class="tech-pill">Llama 3.3 70B</span>
+        <span class="tech-pill">Prompt Engineering</span>
+      </div>
+      <div class="project-hint">↗ Click for full overview + report</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03 / RecSys</div>
+      <div class="project-title">Movie Recommendation System</div>
+      <p class="project-desc">
+        Applied collaborative filtering to model user preference patterns across genres and demographics. Built a structured SQL schema to query user-film interaction data and identify bias patterns.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">SQL</span>
+        <span class="tech-pill">Collaborative Filtering</span>
+        <span class="tech-pill">EDA</span>
+      </div>
+    </div>
+
+    <div class="project-card clickable" onclick="document.getElementById('modal-letmecook').classList.add('open'); document.body.style.overflow='hidden';">
+      <div class="project-num">04 / Full-stack · Group Project</div>
+      <div class="project-title">Let it Cook — Recipe App</div>
+      <p class="project-desc">
+        A full-stack web platform helping university students plan meals around their ingredients, dietary restrictions, and weekly budget. Built collaboratively across 3 Agile sprints with a team of 4.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">React.js</span>
+        <span class="tech-pill">MySQL</span>
+        <span class="tech-pill">Figma</span>
+        <span class="tech-pill">Cypress</span>
+        <span class="tech-pill">Agile</span>
+      </div>
+      <div class="project-hint">↗ Click for full overview + report</div>
+    </div>
+
+    <div class="project-card clickable" onclick="document.getElementById('modal-shadowbudget').classList.add('open'); document.body.style.overflow='hidden';">
+      <div class="project-num">05 / Data Engineering · ML</div>
+      <div class="project-title">Shadow Budget — Open Data Anomaly Detection</div>
+      <p class="project-desc">
+        End-to-end pipeline ingesting 1.27M rows of open procurement data into MySQL, transformed via dbt, and analyzed with Isolation Forest — surfacing 162K anomalous records across 5 detection methods in an interactive Streamlit dashboard.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">dbt</span>
+        <span class="tech-pill">MySQL</span>
+        <span class="tech-pill">Isolation Forest</span>
+        <span class="tech-pill">Streamlit</span>
+        <span class="tech-pill">Plotly</span>
+      </div>
+      <div class="project-hint">↗ Click for full overview</div>
+    </div>
+
+  </div>
+</section>
+
+ <dialog id="let-me-cook-modal" class="project-modal" aria-labelledby="let-me-cook-title">
+  <div class="project-modal__body">
+    <div class="project-modal__top">
+      <div>
+        <div class="eyebrow">Full-stack project</div>
+        <h3 id="let-me-cook-title">Let Me Cook — Recipe App</h3>
+      </div>
+      <button class="project-modal__close" type="button" data-close-modal aria-label="Close project details">×</button>
+    </div>
+
+    <div class="project-modal__grid">
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-overview">
+        <h4 id="let-me-cook-overview">Project overview</h4>
+        <p>Let Me Cook is a full-stack recipe and meal-planning web application built for university students who are managing meals with limited time, budget, cooking experience, and dietary constraints. The application recommends recipes based on available ingredients, dietary restrictions, budget goals, health goals, cuisine preferences, meal type, cooking time, ingredient availability, and rating.</p>
+        <p>The final system supported secure user accounts, profile-based preferences, recipe search and filtering, ingredient-based recipe matching, recipe scaling, recipe reviews, favourites, tried recipes, personal notes, budget-aware recommendations, nutritional information, cost estimates, ingredient substitutes, help icons, and a responsive interface.</p>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-skills">
+        <h4 id="let-me-cook-skills">Skills demonstrated</h4>
+        <div class="tags">
+          <span class="tag">React.js</span><span class="tag">SQL</span><span class="tag">Firebase Auth</span><span class="tag">Database Design</span><span class="tag">Agile Sprints</span><span class="tag">GitHub</span><span class="tag">Cypress</span><span class="tag">UI/UX</span>
+        </div>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-teamwork">
+        <h4 id="let-me-cook-teamwork">Teamwork and collaboration</h4>
+        <ul>
+          <li>Worked through three agile sprints using user stories, acceptance criteria, retrospectives, and sprint-based delivery.</li>
+          <li>Collaborated through GitHub workflows, shared planning, feature ownership, and regular check-ins to reduce blockers and resolve merge conflicts.</li>
+          <li>Contributed to secure login, user data handling, recipe scaling, budget-aware recipe features, estimated recipe cost, UI improvements, and final feature integration.</li>
+        </ul>
+      </section>
+
+      <section class="project-modal__panel" aria-labelledby="let-me-cook-outcomes">
+        <h4 id="let-me-cook-outcomes">Key outcomes</h4>
+        <ul>
+          <li>Designed a 19-table MySQL database to support users, recipes, ingredients, preferences, restrictions, health goals, favourites, reviews, notes, prices, and ingredient substitutes.</li>
+          <li>Built features that help students save time, reduce food waste, manage dietary restrictions, and stay aware of budget and nutrition goals.</li>
+          <li>Pivoted from an infeasible chatbot idea to reviews and comments while preserving meaningful user interaction features.</li>
+          <li>Improved usability after feedback by refining recipe page organization, adding consistent buttons, and including help icons.</li>
+        </ul>
+        <div class="project-modal__links">
+          <a class="btn-primary" href="https://github.com/MSci-245-react/team-project-team-11-1" target="_blank" rel="noopener noreferrer">View GitHub Project</a>
+          <a class="btn-outline" href="assets/let-me-cook-final-report.pdf" target="_blank" rel="noopener noreferrer">Open Final Report PDF</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</dialog>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Let's connect</div>
+  <h2>Open to<br/>Opportunities</h2>
+  <p class="contact-sub">
+    Looking for co-op and internship roles in AI research, data analysis, and ML engineering. Based in Kitchener, ON — open to remote and hybrid.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:gourishettyshresta@gmail.com" class="contact-link contact-link-primary">Email Me</a>
+    <a href="https://linkedin.com" target="_blank" class="contact-link contact-link-secondary">LinkedIn</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Shresta Gourishetty &nbsp;·&nbsp; Kitchener, ON &nbsp;·&nbsp; Built with HTML/CSS
+</footer>
+
+<!-- ══ MODAL: Let it Cook ══ -->
+<div class="modal-overlay" id="modal-letmecook" onclick="if(event.target===this){closeModal('modal-letmecook')}">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-letmecook')">✕</button>
+      <div class="modal-tag">Full-stack · Group Project · MSE 342 — Univ. of Waterloo · Apr 2025</div>
+      <div class="modal-title">Let it Cook</div>
+      <div class="modal-subtitle">Personalized recipe platform for university students</div>
+    </div>
+    <div class="modal-body">
+
+      <div class="collab-badge">Group project — Team of 4</div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Overview</div>
+        <p>Let it Cook is a full-stack web application designed to help university students manage meals after moving out independently. Unlike generic recipe sites, it adapts to each user's dietary restrictions, available ingredients, budget, and nutritional goals — combining ingredient-aware search, real-time budget tracking, substitution suggestions, and a community review system into one student-friendly tool.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Problem & Motivation</div>
+        <p>University students with limited time, cooking experience, and tight budgets struggle to plan and prepare their own meals. Existing solutions don't account for multiple constraints simultaneously. This platform was built to address that gap — enabling students to find recipes they can actually make, with what they already have, within what they can afford.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">My Contributions</div>
+        <ul class="modal-bullets">
+          <li><strong>Authentication system</strong> — built secure login and account creation with password hashing, encryption, validation rules, and session persistence.</li>
+          <li><strong>Recipe scaling</strong> — implemented real-time ingredient quantity adjustment that preserves proportions across all ingredients as the user scales up or down.</li>
+          <li><strong>Weekly budget tracker</strong> — built the full budget module: real-time spend monitoring, configurable weekly budget with auto-reset, mid-week manual adjustments, and proximity alerts when approaching the limit.</li>
+          <li><strong>Estimated recipe cost</strong> — developed dynamic cost calculations per recipe based only on ingredients the user still needs to buy, updating live when ingredients are marked "always available."</li>
+          <li><strong>Nutritional display</strong> — co-implemented the nutritional info panel showing calories, macros, fiber, sugar, and sodium per recipe in search results.</li>
+          <li><strong>UI consistency</strong> — contributed to cross-app UI polish in Sprint 3: button labeling, consistent color scheme, accessible layout, and help icon tooltips.</li>
+          <li><strong>Cost-based sorting</strong> — co-implemented recipe sorting by cost in combination with all other active filters.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Collaboration & Teamwork</div>
+        <ul class="modal-bullets">
+          <li>Delivered across 3 Agile sprints with structured retrospectives after each — identifying blockers, adjusting scope, and improving team velocity every cycle.</li>
+          <li>Work was divided page-by-page across teammates from the start, enabling parallel development and minimizing merge conflicts on a shared codebase.</li>
+          <li>Proactively participated in daily check-ins during Sprint 3 to surface integration issues early and keep cross-feature dependencies unblocked.</li>
+          <li>Adapted to a mid-project pivot: when a planned chatbot feature proved infeasible due to cost constraints, the team quickly realigned and shipped an alternative community review and comment system on schedule.</li>
+          <li>Co-ordinated GitHub merge strategies during conflict-heavy periods in Sprint 3 — agreeing on merge order as a team to maintain a clean main branch throughout.</li>
+          <li>Incorporated user feedback from sprint reviews (e.g., multi-select for always-available ingredients, improved recipe page layout) into subsequent sprints.</li>
+          <li>Received a <strong>perfect peer review score of 100/100</strong> from every teammate — reflecting consistent delivery, communication, and collaborative attitude throughout the project.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Sprint Breakdown</div>
+        <div class="sprint-grid">
+          <div class="sprint-box">
+            <div class="sprint-label">Sprint 1 — Foundation</div>
+            <p>Database design (19-table MySQL schema), website blueprint, authentication, dietary restriction filtering, ingredient-based search, and core recipe display.</p>
+          </div>
+          <div class="sprint-box">
+            <div class="sprint-label">Sprint 2 — Core Features</div>
+            <p>Recipe scaling, user-uploaded recipes, favourites & tried tracking, community reviews & comments, private notes per recipe, and missing-ingredient sorting.</p>
+          </div>
+          <div class="sprint-box">
+            <div class="sprint-label">Sprint 3 — Polish & Budget</div>
+            <p>Weekly budget dashboard, nutritional info display, expiration date alerts, ingredient substitutions, cost-based sorting, UI accessibility, and E2E testing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Key Features Shipped</div>
+        <ul class="modal-bullets">
+          <li>Ingredient-based recipe search with food group filtering and missing-ingredient sorting</li>
+          <li>Dietary restriction and allergen filtering with per-user profile persistence</li>
+          <li>Recipe scaling — real-time proportion recalculation across all ingredients</li>
+          <li>Weekly budget dashboard with spend tracking, alerts, and auto-reset</li>
+          <li>Estimated recipe cost based only on ingredients user still needs to buy</li>
+          <li>Community reviews, ratings (1–5), comments, and average score display</li>
+          <li>Ingredient substitutions — up to 3 per ingredient, allergy-safe</li>
+          <li>Expiration date tracking with visual alerts for soon-to-expire pantry items</li>
+          <li>Nutritional breakdown per recipe (calories, macros, fiber, sugar, sodium)</li>
+          <li>User-uploaded recipes, favourites, tried history, and private per-recipe notes</li>
+          <li>Cypress unit and end-to-end test suite across all sprints</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Tech Stack</div>
+        <div class="modal-chips">
+          <span class="modal-chip hl">React.js</span>
+          <span class="modal-chip hl">MySQL (19 tables)</span>
+          <span class="modal-chip hl">Node.js</span>
+          <span class="modal-chip">Firebase Auth</span>
+          <span class="modal-chip">Figma</span>
+          <span class="modal-chip">Cypress (E2E)</span>
+          <span class="modal-chip">Agile / Scrum</span>
+          <span class="modal-chip">Trello</span>
+          <span class="modal-chip">GitHub</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Skills Demonstrated</div>
+        <div class="modal-chips">
+          <span class="modal-chip">Full-stack development</span>
+          <span class="modal-chip">Agile / sprint planning</span>
+          <span class="modal-chip">Cross-functional collaboration</span>
+          <span class="modal-chip">Relational database design</span>
+          <span class="modal-chip">Test-driven development</span>
+          <span class="modal-chip">UI/UX prototyping (Figma)</span>
+          <span class="modal-chip">Stakeholder feedback integration</span>
+          <span class="modal-chip">Feature scoping & estimation</span>
+          <span class="modal-chip">Git conflict resolution</span>
+          <span class="modal-chip">Scope pivoting under constraints</span>
+        </div>
+      </div>
+
+      <div class="modal-links">
+        <a href="MSE_342_Final_Report.pdf" target="_blank" class="modal-link modal-link-primary">📄 View Full Report (PDF)</a>
+        <a href="https://youtu.be/DkWWEJSygE4" target="_blank" class="modal-link modal-link-secondary">▶ Demo Video</a>
+        <a href="https://youtu.be/s8R3x7n0m3c" target="_blank" class="modal-link modal-link-ghost">▶ Testing Video</a>
+        <a href="https://trello.com/b/r7XgFIVJ/342-group-project-team-11" target="_blank" class="modal-link modal-link-ghost">Trello Board</a>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem;">⚠ The GitHub repository is private. The full report above includes the ERD, sprint retrospectives, user stories, and complete MySQL schema.</p>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // Intersection observer for fade-ups
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Modal
+  function closeModal(id) {
+    if (id) {
+      document.getElementById(id).classList.remove('open');
+    } else {
+      document.querySelectorAll('.modal-overlay.open').forEach(el => el.classList.remove('open'));
+    }
+    if (!document.querySelector('.modal-overlay.open')) document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+<!-- ══ MODAL: LLM Evaluation Framework ══ -->
+<div class="modal-overlay" id="modal-llmeval" onclick="if(event.target===this){closeModal('modal-llmeval')}">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-llmeval')">✕</button>
+      <div class="modal-tag">NLP · LLM Research · Independent Project</div>
+      <div class="modal-title">LLM Evaluation Framework</div>
+      <div class="modal-subtitle">Automated Q&A assessment pipeline — 94% pass rate across 6 topic categories</div>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <div class="modal-section-title">Overview</div>
+        <p>A from-scratch Python evaluation pipeline for measuring large language model performance on Q&A tasks. The framework integrates the Groq API with Llama 3.3 70B, runs responses through two independent scoring methods — LLM-as-judge and human review — and compares their agreement to surface bias in automated evaluation. The project resulted in a 94% pass rate across a 20-question dataset spanning 6 topic categories, with full scoring analysis and reliability metrics.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Motivation</div>
+        <p>As LLMs are increasingly deployed in production Q&A systems, reliable evaluation is critical — and purely human review doesn't scale. This project set out to build a reproducible, automated evaluation harness and rigorously test whether LLM-as-judge scoring can substitute for human judgment, identifying where the two methods agree, diverge, and introduce bias.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">What I Built</div>
+        <ul class="modal-bullets">
+          <li><strong>20-question evaluation dataset</strong> — hand-curated across 6 distinct topic categories to stress-test chatbot consistency and surface category-level performance differences.</li>
+          <li><strong>Groq API integration</strong> — connected to Llama 3.3 70B with structured prompt templates ensuring reproducible, parseable responses across all evaluation runs.</li>
+          <li><strong>LLM-as-judge scoring</strong> — implemented a secondary LLM judge that evaluates each chatbot response against a ground-truth rubric, returning structured pass/fail scores with reasoning.</li>
+          <li><strong>Human review scoring</strong> — designed a parallel human evaluation protocol to independently score the same responses, enabling direct method comparison.</li>
+          <li><strong>Scorer agreement analysis</strong> — quantified alignment between the two scoring methods across all 6 topic categories, measuring where automated evaluation is reliable and where it diverges from human judgment.</li>
+          <li><strong>Bias analysis</strong> — identified systematic tendencies in LLM-as-judge scoring (e.g., leniency or harshness by topic type) and documented their implications for automated evaluation at scale.</li>
+          <li><strong>Performance report</strong> — produced a structured findings document covering pass rates, category breakdowns, scorer agreement rates, and recommendations for LLM eval design.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Results</div>
+        <ul class="modal-bullets">
+          <li>Achieved a <strong>99% pass rate</strong> across the full 20-question dataset under both scoring methods.</li>
+          <li>Both LLM-as-judge and human review scores showed <strong>high agreement</strong> overall, validating the automated pipeline for this task class.</li>
+          <li>Identified <strong>topic-specific divergence</strong> between scorers in categories requiring nuanced or subjective judgment, highlighting areas where human review remains essential.</li>
+          <li>Documented bias patterns in LLM-as-judge scoring that inform best practices for automated evaluation harness design.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Tech Stack</div>
+        <div class="modal-chips">
+          <span class="modal-chip hl">Python</span>
+          <span class="modal-chip hl">Groq API</span>
+          <span class="modal-chip hl">Llama 3.3 70B</span>
+          <span class="modal-chip">Prompt Engineering</span>
+          <span class="modal-chip">Pandas</span>
+          <span class="modal-chip">Jupyter Notebook</span>
+          <span class="modal-chip">JSON / structured outputs</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Skills Demonstrated</div>
+        <div class="modal-chips">
+          <span class="modal-chip">LLM evaluation pipeline design</span>
+          <span class="modal-chip">Prompt engineering</span>
+          <span class="modal-chip">API integration</span>
+          <span class="modal-chip">Scorer agreement analysis</span>
+          <span class="modal-chip">Bias detection & documentation</span>
+          <span class="modal-chip">Experimental research design</span>
+          <span class="modal-chip">Technical report writing</span>
+          <span class="modal-chip">Reproducible ML workflows</span>
+        </div>
+      </div>
+
+      <div class="modal-links">
+        <a href="https://github.com/gshresta-codes/LLM-eval.git" target="_blank" class="modal-link modal-link-primary">GitHub Repo ↗</a>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem;">📄 The full evaluation report (<code>LLM evaluation report.docx</code>) is available directly in the GitHub repository above.</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL: Shadow Budget ══ -->
+<div class="modal-overlay" id="modal-shadowbudget" onclick="if(event.target===this){closeModal('modal-shadowbudget')}">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-shadowbudget')">✕</button>
+      <div class="modal-tag">Data Engineering · ML · Open Data</div>
+      <div class="modal-title">Shadow Budget</div>
+      <div class="modal-subtitle">1.27M-row open data pipeline — 162K anomalies surfaced across 5 detection methods</div>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <div class="modal-section-title">Overview</div>
+        <p>Shadow Budget is an end-to-end data engineering and machine learning project that ingests, transforms, and analyzes 1.27 million rows of publicly available open procurement data to surface anomalous spending patterns. Large-scale open datasets are practically impossible to interpret manually — this project automates the entire process, from raw API ingestion to an interactive multi-page analytics dashboard.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">What I Built</div>
+        <ul class="modal-bullets">
+          <li><strong>Ingestion pipeline</strong> — Python (Pandas + SQLAlchemy + PyMySQL) pulls 1.27M+ contract records from a public open data API directly into a MySQL database.</li>
+          <li><strong>dbt transformation layer</strong> — staging and mart models clean, normalize, and aggregate raw contract data into analysis-ready tables (stg_contracts, mart_vendor_summary).</li>
+          <li><strong>Rule-based anomaly flags</strong> — statistical thresholds detect high-value outliers (mean + 3σ per department), large amendments (>50% of original value), negative-value contracts, and single-bid awards over $100K.</li>
+          <li><strong>Isolation Forest ML model</strong> — scikit-learn model trained on 4 numeric features (contract value, amendment value, value increase, contract duration) at 5% contamination, capturing non-linear anomaly patterns rule-based logic misses.</li>
+          <li><strong>Streamlit dashboard</strong> — three-page interactive app: Overview (total spend trends, top departments), Anomaly Explorer (filterable flagged contracts with detection reasons), and Vendor Intelligence (concentration, amendment rates, multi-department presence).</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Key Findings</div>
+        <ul class="modal-bullets">
+          <li>Analyzed <strong>1,274,009 contracts</strong> worth hundreds of billions in total spend</li>
+          <li>Flagged <strong>162,054 anomalous contracts</strong> (12.7% of all records) across 5 detection methods</li>
+          <li>Identified <strong>97,683 contracts</strong> amended by more than 50% of their original value</li>
+          <li>Found <strong>44,030 single-bid contracts</strong> each worth over $100,000</li>
+          <li>Detected <strong>177 contracts</strong> with negative values indicating unusual credit adjustments</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Tech Stack</div>
+        <div class="modal-chips">
+          <span class="modal-chip hl">Python</span>
+          <span class="modal-chip hl">dbt</span>
+          <span class="modal-chip hl">MySQL</span>
+          <span class="modal-chip hl">Scikit-learn (Isolation Forest)</span>
+          <span class="modal-chip hl">Streamlit</span>
+          <span class="modal-chip">Plotly</span>
+          <span class="modal-chip">Pandas</span>
+          <span class="modal-chip">SQLAlchemy</span>
+          <span class="modal-chip">PyMySQL</span>
+          <span class="modal-chip">python-dotenv</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Skills Demonstrated</div>
+        <div class="modal-chips">
+          <span class="modal-chip">End-to-end data engineering</span>
+          <span class="modal-chip">ETL pipeline design</span>
+          <span class="modal-chip">dbt modelling (staging + marts)</span>
+          <span class="modal-chip">Anomaly detection (ML + statistical)</span>
+          <span class="modal-chip">Open data integration</span>
+          <span class="modal-chip">Interactive dashboard development</span>
+          <span class="modal-chip">Feature engineering</span>
+          <span class="modal-chip">SQL schema design</span>
+          <span class="modal-chip">Reproducible ML workflows</span>
+        </div>
+      </div>
+
+      <div class="modal-links">
+        <a href="https://github.com/gshresta-codes/shadow-budget" target="_blank" class="modal-link modal-link-primary">GitHub Repo ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
