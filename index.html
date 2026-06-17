@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Shresta Gourishetty — AI Researcher & Analyst</title>
+<title>Shresta Gourishetty — Data Analyst & Researcher</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -592,16 +592,16 @@
     <div class="hero-pattern"></div>
     <div class="hero-stats" style="grid-template-columns: 1fr;">
       <div class="stat-box">
-        <div class="stat-num">4</div>
-        <div class="stat-label">AI research projects executed · ISED, Government of Canada</div>
+        <div class="stat-num">162<span>K+</span></div>
+        <div class="stat-label">Anomalous contracts flagged · ML-powered procurement pipeline, Shadow Budget</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">94<span>%</span></div>
-        <div class="stat-label">LLM eval pass rate · across LLM-as-judge & human review</div>
+        <div class="stat-num">95<span>%</span></div>
+        <div class="stat-label">ML model accuracy · random forest on held-out test set, Stock Market Prediction</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">60<span>%</span></div>
-        <div class="stat-label">Data entry time saved · AI chip hardware pipelines, Tenstorrent</div>
+        <div class="stat-num">70<span>%</span></div>
+        <div class="stat-label">Manual reporting time saved · ETL pipeline + Power BI dashboard, Health Canada</div>
       </div>
     </div>
   </div>
@@ -630,12 +630,16 @@
       <div class="skill-tags">
         <span class="tag">Machine Learning</span>
         <span class="tag">NLP</span>
+        <span class="tag">Supervised Learning</span>
+        <span class="tag">Unsupervised Learning</span>
         <span class="tag">Scikit-learn</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">PyTorch</span>
+        <span class="tag">TensorFlow / PyTorch</span>
         <span class="tag">Prompt Engineering</span>
         <span class="tag">LLM Research</span>
+        <span class="tag">Data Pipelines</span>
         <span class="tag">Statistical Modeling</span>
+        <span class="tag">Experimental Design</span>
+        <span class="tag">Anomaly Detection</span>
       </div>
     </div>
     <div class="skill-category">
@@ -643,12 +647,19 @@
       <div class="skill-tags">
         <span class="tag">Pandas</span>
         <span class="tag">NumPy</span>
-        <span class="tag">Jupyter</span>
+        <span class="tag">Jupyter Notebook</span>
+        <span class="tag">dbt</span>
         <span class="tag">Power BI</span>
         <span class="tag">GitHub</span>
+        <span class="tag">VS Code</span>
         <span class="tag">React.js</span>
         <span class="tag">Cypress</span>
-        <span class="tag">VS Code</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Excel</span>
       </div>
     </div>
   </div>
@@ -751,8 +762,25 @@
       </div>
     </div>
 
+    <div class="project-card clickable" onclick="document.getElementById('modal-shadowbudget').classList.add('open'); document.body.style.overflow='hidden';">
+      <div class="project-num">04 / Data Engineering · Analytics</div>
+      <div class="project-title">Shadow Budget</div>
+      <p class="project-desc">
+        End-to-end data pipeline ingesting 1.27M rows of public procurement data into MySQL, with dbt transformation layers and Isolation Forest anomaly detection surfacing 162K+ suspicious contracts.
+      </p>
+      <div class="project-techs">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">MySQL</span>
+        <span class="tech-pill">dbt</span>
+        <span class="tech-pill">Isolation Forest</span>
+        <span class="tech-pill">Streamlit</span>
+        <span class="tech-pill">Plotly</span>
+      </div>
+      <div class="project-hint">↗ Click for full overview</div>
+    </div>
+
     <div class="project-card clickable" onclick="document.getElementById('modal-letmecook').classList.add('open'); document.body.style.overflow='hidden';">
-      <div class="project-num">04 / Full-stack · Group Project</div>
+      <div class="project-num">05 / Full-stack · Group Project</div>
       <div class="project-title">Let it Cook — Recipe App</div>
       <p class="project-desc">
         A full-stack web platform helping university students plan meals around their ingredients, dietary restrictions, and weekly budget. Built collaboratively across 3 Agile sprints with a team of 4.
@@ -983,6 +1011,86 @@
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
+
+<!-- ══ MODAL: Shadow Budget ══ -->
+<div class="modal-overlay" id="modal-shadowbudget" onclick="if(event.target===this){closeModal('modal-shadowbudget')}">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-shadowbudget')">✕</button>
+      <div class="modal-tag">Data Engineering · Anomaly Detection · Independent Project</div>
+      <div class="modal-title">Shadow Budget</div>
+      <div class="modal-subtitle">Public procurement pipeline — 162K+ anomalous contracts surfaced from 1.27M rows</div>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <div class="modal-section-title">Overview</div>
+        <p>Shadow Budget is an end-to-end data engineering and analytics project that ingests, transforms, and analyzes 1.27 million rows of publicly available federal procurement data to surface irregular and potentially problematic government contracts. The project combines rule-based statistical flagging with machine learning anomaly detection, visualized through an interactive Streamlit + Plotly dashboard.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Motivation</div>
+        <p>Public procurement data is openly available but rarely analyzed at scale. The goal was to build a production-grade pipeline that could ingest raw open data, apply structured transformation logic, and surface anomalies — single-bid contracts, over-amended records, and statistical outliers — in a way that is reproducible, auditable, and accessible to non-technical stakeholders.</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">What I Built</div>
+        <ul class="modal-bullets">
+          <li><strong>Ingestion pipeline</strong> — loaded 1.27M rows of open procurement data via Python (Pandas, SQLAlchemy) into a structured MySQL database, handling schema normalization, type coercion, and null handling across raw source fields.</li>
+          <li><strong>dbt transformation layer</strong> — built staging and mart models to produce clean, analysis-ready outputs; staging models handle source normalization while mart models define business logic for anomaly criteria.</li>
+          <li><strong>Rule-based flagging</strong> — implemented statistical thresholds across contract value, amendment counts, and vendor competition fields to flag known anomaly types: single-bid contracts (44K+) and over-amended records (97K+).</li>
+          <li><strong>Isolation Forest anomaly detection</strong> — applied scikit-learn's Isolation Forest across 4 numeric features to surface statistically anomalous contracts beyond rule-based heuristics, identifying 162,054 total flagged records.</li>
+          <li><strong>Interactive dashboard</strong> — built a Streamlit + Plotly dashboard enabling users to explore flagged contracts, filter by anomaly type, and drill into individual records with full contract metadata.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Results</div>
+        <ul class="modal-bullets">
+          <li>Processed and structured <strong>1.27M rows</strong> of raw procurement data into a clean, query-ready MySQL schema.</li>
+          <li>Surfaced <strong>162,054 anomalous contracts</strong> across rule-based and ML detection methods — including 44K+ single-bid and 97K+ over-amended records.</li>
+          <li>dbt staging + mart architecture enables reproducible transformations and auditability of all flagging logic.</li>
+          <li>Dashboard provides non-technical stakeholders access to explore anomalies without writing SQL.</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Tech Stack</div>
+        <div class="modal-chips">
+          <span class="modal-chip hl">Python</span>
+          <span class="modal-chip hl">MySQL</span>
+          <span class="modal-chip hl">dbt</span>
+          <span class="modal-chip hl">Isolation Forest (scikit-learn)</span>
+          <span class="modal-chip hl">Streamlit</span>
+          <span class="modal-chip hl">Plotly</span>
+          <span class="modal-chip">Pandas</span>
+          <span class="modal-chip">SQLAlchemy</span>
+          <span class="modal-chip">NumPy</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Skills Demonstrated</div>
+        <div class="modal-chips">
+          <span class="modal-chip">Data pipeline design</span>
+          <span class="modal-chip">ETL / ELT architecture</span>
+          <span class="modal-chip">Anomaly detection</span>
+          <span class="modal-chip">Statistical flagging</span>
+          <span class="modal-chip">dbt modeling</span>
+          <span class="modal-chip">Relational database design</span>
+          <span class="modal-chip">Dashboard development</span>
+          <span class="modal-chip">Data quality engineering</span>
+          <span class="modal-chip">Open data analysis</span>
+        </div>
+      </div>
+
+      <div class="modal-links">
+        <a href="https://github.com/gshresta-codes/shadow-budget" target="_blank" class="modal-link modal-link-primary">GitHub Repo ↗</a>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ══ MODAL: LLM Evaluation Framework ══ -->
 <div class="modal-overlay" id="modal-llmeval" onclick="if(event.target===this){closeModal('modal-llmeval')}">
